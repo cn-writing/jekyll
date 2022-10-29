@@ -9,7 +9,3 @@ COPY Gemfile Gemfile
 
 RUN bundle config set --local system 'true' && \
     bundle install
-
-# COPY entrypoint.sh /entrypoint.sh
-
-# ENTRYPOINT ["/entrypoint.sh"]
