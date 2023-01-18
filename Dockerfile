@@ -1,15 +1,13 @@
 FROM ruby:3.1.3-alpine
 LABEL maintainer="Julian Nonino <noninojulian@gmail.com>"
 
-RUN apk update && \
-    apk --no-cache --update add bash build-base git nodejs && \
-    rm -rf /var/cache/apk/*
+RUN apt-get update && \
+    apt-get install -y git nodejs && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY Gemfile Gemfile
 
-RUN bundle config set --local system 'true' && \
+RUN gem update --system && \
+    bundle config set --local system 'true' && \
     bundle install
-
-# COPY entrypoint.sh /entrypoint.sh
-
-# ENTRYPOINT ["/entrypoint.sh"]
