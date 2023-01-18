@@ -1,10 +1,9 @@
-FROM ruby:3.2.0
+FROM ruby:3.1.3-alpine
 LABEL maintainer="Julian Nonino <noninojulian@gmail.com>"
 
-RUN apt-get update && \
-    apt-get install -y git nodejs && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk update && \
+    apk --no-cache --update add bash build-base git nodejs && \
+    rm -rf /var/cache/apk/*
 
 COPY Gemfile Gemfile
 
