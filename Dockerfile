@@ -1,4 +1,4 @@
-FROM ruby:3.3.1-alpine
+FROM ruby:3.3.3-alpine
 LABEL maintainer="Julian Nonino <noninojulian@gmail.com>"
 
 RUN apk update && \
